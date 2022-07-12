@@ -43,7 +43,7 @@ jobs:
         uses: ./.github/actions/secrets
         with:
           # who-to-greet: 'Mona the Octocat'
-          secrets: ${{ toJSON(secrets) }}
+          info: ${{ toJSON(secrets) }}
       # - name: Use the value again
       #   run: |
       #     echo "${{ env.action_state }}"
