@@ -14,12 +14,9 @@ jobs:
       #     public: true
       - name: Set environment variable 2
         run: |
-          # echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-          # curl https://httpbin.org/json >> $GITHUB_ENV
-          # echo 'EOF' >> $GITHUB_ENV
-
           echo 'NEW_VARIABLE<<EOF' >> $GITHUB_ENV
-          curl https://httpbin.org/json >> $GITHUB_ENV
+          echo 'values 1' >> $GITHUB_ENV
+          echo 'values 2' >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
 
       - name: Set environment variable 3
@@ -28,4 +25,4 @@ jobs:
       - name: Use the value
         run: |
           echo "${{ env.action_state }}"
-          echo "${{ env.JSON_RESPONSE }}"
+          echo "${{ env.NEW_VARIABLE }}"
