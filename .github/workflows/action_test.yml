@@ -25,4 +25,3 @@ jobs:
         run: |
           echo "${{ env.action_state }}" # This will output 'yellow'
           echo "${{ env.JSON_RESPONSE }}"
-          echo "${{ env.GITHUB_TOKEN }}"
