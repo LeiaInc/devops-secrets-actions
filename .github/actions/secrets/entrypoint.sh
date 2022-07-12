@@ -8,7 +8,7 @@ if [[ $key == *$'\n'* ]]; then
 elif [[ ! -z $key ]]; then
     echo $key'='$value >> $GITHUB_ENV
 fi
-done < (jq -j 'to_entries|.[] | "\(.key) \(.value)\t"' <<< "$secrets")
+done < $(jq -j 'to_entries|.[] | "\(.key) \(.value)\t"' <<< "$secrets")
 
 # echo "Hello $1"
 # time=$(date)
