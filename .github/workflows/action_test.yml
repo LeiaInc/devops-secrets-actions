@@ -18,9 +18,9 @@ jobs:
           # curl https://httpbin.org/json >> $GITHUB_ENV
           # echo 'EOF' >> $GITHUB_ENV
 
-          echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-          curl https://jsonplaceholder.typicode.com/todos/1 >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
+          # echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
+          # curl https://jsonplaceholder.typicode.com/todos/1 >> $GITHUB_ENV
+          # echo 'EOF' >> $GITHUB_ENV
 
           echo 'NEW_VARIABLE<<EOF' >> $GITHUB_ENV
           echo 'values 1' >> $GITHUB_ENV
@@ -34,3 +34,7 @@ jobs:
         run: |
           echo "${{ env.action_state }}"
           echo "${{ env.NEW_VARIABLE }}"
+      - name: Dockerfile
+        uses: ./.github/actions/secrets
+        with:
+          who-to-greet: 'Mona the Octocat'
