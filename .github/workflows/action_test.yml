@@ -44,6 +44,6 @@ jobs:
         with:
           # who-to-greet: 'Mona the Octocat'
           info: ${{ toJSON(secrets) }}
-      # - name: Use the value again
-      #   run: |
-      #     echo "${{ env.action_state }}"
+      - name: Use the value again
+        run: |
+          echo "TEST: ${{ env.TEST }}"
