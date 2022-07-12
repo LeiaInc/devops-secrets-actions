@@ -9,15 +9,6 @@ echo $1
 #     echo $key'='$value >> $GITHUB_ENV
 # fi
 
-echo $1 && \
-while read -d $'\t' -r key value; do
-if [[ $key == *$'\n'* ]]; then
-    echo $key
-elif [[ ! -z $key ]]; then
-    echo $key
-fi
-done < <(jq -j 'to_entries|.[] | "\(.key) \(.value)\t"' <<< "$1"
-
 # echo "Hello $1"
 # time=$(date)
 # echo "::set-output name=time::$time"
