@@ -12,33 +12,34 @@ jobs:
       #     name: GITHUB_TOKEN
       #     value: 'TEST_TOKEN'
       #     public: true
-      - name: Set environment variable 2
-        run: |
-          # echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-          # curl https://httpbin.org/json >> $GITHUB_ENV
-          # echo 'EOF' >> $GITHUB_ENV
+      # - name: Set environment variable 2
+      #   run: |
+      #     # echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
+      #     # curl https://httpbin.org/json >> $GITHUB_ENV
+      #     # echo 'EOF' >> $GITHUB_ENV
 
-          # echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-          # curl https://jsonplaceholder.typicode.com/todos/1 >> $GITHUB_ENV
-          # echo 'EOF' >> $GITHUB_ENV
+      #     # echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
+      #     # curl https://jsonplaceholder.typicode.com/todos/1 >> $GITHUB_ENV
+      #     # echo 'EOF' >> $GITHUB_ENV
 
-          echo 'NEW_VARIABLE<<EOF' >> $GITHUB_ENV
-          echo 'values 1' >> $GITHUB_ENV
-          echo 'values 2' >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
+      #     echo 'NEW_VARIABLE<<EOF' >> $GITHUB_ENV
+      #     echo 'values 1' >> $GITHUB_ENV
+      #     echo 'values 2' >> $GITHUB_ENV
+      #     echo 'EOF' >> $GITHUB_ENV
 
-      - name: Set environment variable 3
-        run: |
-          echo "action_state=yellow" >> $GITHUB_ENV
-      - name: Use the value
-        run: |
-          echo "${{ env.action_state }}"
-          echo "${{ env.NEW_VARIABLE }}"
+      # - name: Set environment variable 3
+      #   run: |
+      #     echo "action_state=yellow" >> $GITHUB_ENV
+      # - name: Use the value
+      #   run: |
+      #     echo "${{ env.action_state }}"
+      #     echo "${{ env.NEW_VARIABLE }}"
       - uses: actions/checkout@v2
       - name: Dockerfile
         uses: ./.github/actions/secrets
         with:
-          who-to-greet: 'Mona the Octocat'
-      - name: Use the value again
-        run: |
-          echo "${{ env.action_state }}"
+          # who-to-greet: 'Mona the Octocat'
+          secrets: ${{ toJSON(secrets) }}
+      # - name: Use the value again
+      #   run: |
+      #     echo "${{ env.action_state }}"
