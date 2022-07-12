@@ -15,7 +15,7 @@ gh auth refresh -h github.com -s admin:org && \
 gh api -H "Accept: application/vnd.github.v3+json" /orgs/LeiaInc/actions/secrets?page=1&per_page=100 \
 > secrets.txt
 
-cat secrets.txt
+echo $(cat secrets.txt)
 
 
 echo "Test"
