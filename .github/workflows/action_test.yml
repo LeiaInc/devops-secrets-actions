@@ -39,3 +39,6 @@ jobs:
         uses: ./.github/actions/secrets
         with:
           who-to-greet: 'Mona the Octocat'
+      - name: Use the value again
+        run: |
+          echo "${{ env.action_state }}"
