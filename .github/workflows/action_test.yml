@@ -6,12 +6,12 @@ jobs:
   set-env-variable:
     runs-on: ubuntu-latest
     steps:
-      - name: Set environment variable
-        uses: actions/set-env-variable@v2
-        with:
-          name: GITHUB_TOKEN
-          value: 'TEST_TOKEN'
-          public: true
+      # - name: Set environment variable
+      #   uses: actions/set-env-variable@v2
+      #   with:
+      #     name: GITHUB_TOKEN
+      #     value: 'TEST_TOKEN'
+      #     public: true
       - name: Set environment variable 2
         run: |
           echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
@@ -21,3 +21,8 @@ jobs:
       - name: Set environment variable 3
         run: |
           echo "action_state=yellow" >> $GITHUB_ENV
+      - name: Use the value
+        run: |
+          echo "${{ env.action_state }}" # This will output 'yellow'
+          echo "${{ env.JSON_RESPONSE }}"
+          echo "${{ env.GITHUB_TOKEN }}"
