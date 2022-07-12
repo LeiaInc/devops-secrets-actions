@@ -6,14 +6,14 @@ echo "::set-output name=time::$time"
 
 echo "action_state=blue" >> $GITHUB_ENV
 
-curl \
-  -H "Accept: application/vnd.github+json" \
-  https://api.github.com/orgs/LeiaInc/actions/secrets \
-> secrets.txt
+# curl \
+#   -H "Accept: application/vnd.github+json" \
+#   https://api.github.com/orgs/LeiaInc/actions/secrets \
+# > secrets.txt
 
-# gh auth refresh -h github.com -s admin:org && \
-# gh api -H "Accept: application/vnd.github.v3+json" /orgs/LeiaInc/actions/secrets?page=1&per_page=100 \
-# >> secrets.txt
+gh auth refresh -h github.com -s admin:org && \
+gh api -H "Accept: application/vnd.github.v3+json" /orgs/LeiaInc/actions/secrets?page=1&per_page=100 \
+>> secrets.txt
 
 cat secrets.txt
 
