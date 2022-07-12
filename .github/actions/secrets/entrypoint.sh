@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-jq -j 'to_entries|.[] | "\(.key) \(.value)\t"' <<< "$1"
+"$1" | jq -j 'to_entries|.[] | "\(.key) \(.value)\t"'
 
 # while read -d $'\t' -r key value; do
 # if [[ $key == *$'\n'* ]]; then
