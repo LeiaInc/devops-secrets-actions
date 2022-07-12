@@ -7,7 +7,7 @@ if [[ $key == *$'\n'* ]]; then
 elif [[ ! -z $key ]]; then
     echo $key
 fi
-done< <(jq -j 'to_entries|.[] | "\(.key) \(.value)\t"' <<< "$1")
+done
 
 # echo "Hello $1"
 # time=$(date)
