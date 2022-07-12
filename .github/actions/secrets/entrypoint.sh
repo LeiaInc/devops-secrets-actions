@@ -7,7 +7,7 @@ echo "::set-output name=time::$time"
 echo "action_state=blue" >> $GITHUB_ENV
 
 curl \
-  -H "Accept: application/vnd.github+json" \ 
+  -H "Accept: application/vnd.github+json" \
   https://api.github.com/orgs/LeiaInc/actions/secrets \
 > secrets.txt
 
