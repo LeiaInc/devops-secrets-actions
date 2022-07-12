@@ -1,9 +1,6 @@
 #!/bin/sh -l
 
-echo $1 && \
-while read -d $'\t' -r key value; do
-echo $key
-
+echo $1
 # if [[ $key == *$'\n'* ]]; then
 #     # echo $key'<<EOF' >> $GITHUB_ENV
 #     # echo "$value" >> $GITHUB_ENV
@@ -11,7 +8,15 @@ echo $key
 # elif [[ ! -z $key ]]; then
 #     echo $key'='$value >> $GITHUB_ENV
 # fi
-done
+
+echo $1 && \
+while read -d $'\t' -r key value; do
+if [[ $key == *$'\n'* ]]; then
+    echo $key
+elif [[ ! -z $key ]]; then
+    echo $key
+fi
+done< <(jq -j 'to_entries|.[] | "\(.key) \(.value)\t"' <<< "$1"
 
 # echo "Hello $1"
 # time=$(date)
