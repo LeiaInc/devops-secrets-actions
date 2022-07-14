@@ -6,6 +6,7 @@ jobs:
   set-env-variable:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: set AWS Secrets
         run: |
           echo "AWS_ACCESS_KEY_ID=${{ secrets.POC_AWS_ACCESS_KEY_ID }}" >> $GITHUB_ENV
