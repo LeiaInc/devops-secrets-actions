@@ -1,7 +1,17 @@
 # devops-actions
 This repo is destined to DevOps Teams Github custom Actions
 
-# How to use 
+# Parameters:
+ - secrets: JSON ARRAY from secrets names from AWS Secret Manager. Ex: `'["LEIA_LOFT_PROD","LEIA_FLIX_PROD"]'`
+# How to use
+
+```yaml
+  - uses: LeiaInc/devops-actions@v0.0.1
+    with:
+      secrets: '["LEIA_LOFT_PROD","LEIA_FLIX_PROD"]'
+```
+
+Obs: It's necessary to pass the AWS Access key and AWS Secret Key to environment.
 
 ```yaml
   - name: Configure AWS Credentials
