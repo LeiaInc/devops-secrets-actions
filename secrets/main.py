@@ -57,5 +57,5 @@ if __name__ == "__main__":
     secrets = get_secret("prod/github-actions")
 
     for secret, value in secrets.items():
-        os.system(f'{secret} = {value}>> $GITHUB_ENV')
+        os.system(f'echo "{secret}={value}">> $GITHUB_ENV')
 
