@@ -63,5 +63,4 @@ if __name__ == "__main__":
         for secret, value in secrets.items():
             os.system(f'echo ::add-mask::{value}')
             os.system(f'echo "{secret_name}_{secret}={value}">> $GITHUB_ENV')
-            os.system(f'echo "{secret}={value}">> $GITHUB_ENV')
 

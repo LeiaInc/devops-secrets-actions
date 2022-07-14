@@ -13,56 +13,12 @@ jobs:
           aws-access-key-id: ${{ secrets.LEIALOFT_POC_AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.LEIALOFT_POC_AWS_SECRET_ACCESS_KEY_ID }}
           aws-region: us-east-1
-#      - name: set AWS Secrets
-#        run: |
-#          echo "AWS_ACCESS_KEY_ID=${{ secrets.POC_AWS_ACCESS_KEY_ID }}" >> $GITHUB_ENV
-#          echo "AWS_SECRET_ACCESS_KEY=${{ secrets.POC_AWS_SECRET_ACCESS_KEY }}" >> $GITHUB_ENV
       - name: Test Python Dockerfile
         uses: ./secrets
         with:
-          secrets: '["prod/github-actions","tests"]'
+          secrets: '["LEIA_LOFT_PROD","LEIA_FLIX_PROD"]'
       - name: Use the value again
         run: |
-          echo "SECRET_SECURY_TEST: $SECRET_SECURY_TEST"
-          echo "TOKEN_TEST: $TOKEN_TEST"
-      # - name: Set environment variable
-      #   uses: actions/set-env-variable@v2
-      #   with:
-      #     name: GITHUB_TOKEN
-      #     value: 'TEST_TOKEN'
-      #     public: true
-      # - name: Set environment variable 2
-      #   run: |
-      #     # echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-      #     # curl https://httpbin.org/json >> $GITHUB_ENV
-      #     # echo 'EOF' >> $GITHUB_ENV
-
-      #     # echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-      #     # curl https://jsonplaceholder.typicode.com/todos/1 >> $GITHUB_ENV
-      #     # echo 'EOF' >> $GITHUB_ENV
-
-      #     echo 'NEW_VARIABLE<<EOF' >> $GITHUB_ENV
-      #     echo 'values 1' >> $GITHUB_ENV
-      #     echo 'values 2' >> $GITHUB_ENV
-      #     echo 'EOF' >> $GITHUB_ENV
-
-      # - name: Set environment variable 3
-      #   run: |
-      #     echo "action_state=yellow" >> $GITHUB_ENV
-      # - name: Use the value
-      #   run: |
-      #     echo "${{ env.action_state }}"
-      #     echo "${{ env.NEW_VARIABLE }}"
-#      - name: tes
-#        run: |
-#          echo ${{ secrets.TEST }}
-#          echo ${{ secrets.TEST_ORGANIZATION }}
-#      - uses: actions/checkout@v2
-#      - name: Dockerfile
-#        uses: ./.github/actions/secrets
-#        with:
-#          # who-to-greet: 'Mona the Octocat'
-#          info: ${{ toJSON(secrets) }}
-#      - name: Use the value again
-#        run: |
-#          echo "TEST: ${{ env.TEST }}"
+          echo "SECRET_SECURY_TEST: $LEIA_LOFT_PROD_SECRET_SECURY_TEST"
+          echo "TOKEN_TEST: $LEIA_LOFT_PROD_TOKEN_TEST"
+          echo "GCP_KEY: $LEIA_FLIX_PROD_GCP_KEY"
