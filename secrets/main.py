@@ -57,12 +57,10 @@ def get_secret(secret_name):
 if __name__ == "__main__":
     args = sys.argv[1]
 
-    print(args)
-    print(json.loads(args))
+    for secret_name in json.loads(args):
+        secrets = get_secret(secret_name)
 
-    secrets = get_secret("prod/github-actions")
-
-    for secret, value in secrets.items():
-        os.system(f'echo ::add-mask::{value}')
-        os.system(f'echo "{secret}={value}">> $GITHUB_ENV')
+        for secret, value in secrets.items():
+            os.system(f'echo ::add-mask::{value}')
+            os.system(f'echo "{secret}={value}">> $GITHUB_ENV')
 
