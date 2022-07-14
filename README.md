@@ -1,12 +1,22 @@
 # devops-actions
 This repo is destined to DevOps Teams Github custom Actions
 
-# 
-https://jacobtomlinson.dev/posts/2019/creating-github-actions-in-go/
-https://github.com/mvdan/github-actions-golang
+# How to use 
 
-https://docs.github.com/en/actions/security-guides/encrypted-secrets
-https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions
+```yaml
+  - name: Configure AWS Credentials
+    uses: aws-actions/configure-aws-credentials@v1
+    with:
+      aws-access-key-id: ${{ secrets.LEIALOFT_POC_AWS_ACCESS_KEY_ID }}
+      aws-secret-access-key: ${{ secrets.LEIALOFT_POC_AWS_SECRET_ACCESS_KEY_ID }}
+      aws-region: us-east-1
+  - uses: LeiaInc/devops-actions@v0.0.1
+    with:
+      secrets: '["LEIA_LOFT_PROD","LEIA_FLIX_PROD"]'
+  - name: Get the value from ENV
+    run: |
+      echo "LEIA_LOFT_PROD_SECRET_SECURY_TEST: $LEIA_LOFT_PROD_SECRET_SECURY_TEST"
+      echo "LEIA_LOFT_PROD_TOKEN_TEST: $LEIA_LOFT_PROD_TOKEN_TEST"
+      echo "LEIA_FLIX_PROD_GCP_KEY: $LEIA_FLIX_PROD_GCP_KEY"
+```
 
-
-https://docs.github.com/pt/enterprise-cloud@latest/actions/using-workflows/workflow-commands-for-github-actions#using-workflow-commands-to-access-toolkit-functions

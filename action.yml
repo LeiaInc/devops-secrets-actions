@@ -3,11 +3,8 @@ author: "Douglas Francisco Cardoso <douglas.cardoso.nl@leiainc.com>"
 description: "This can export every secrets from Github to environment variables"
 inputs:
   secrets:
-    description: "Secrets list to get from AWS Secrets Manager"
+    description: "Secrets name list to get from AWS Secrets Manager. Need to be a Json ARRAY."
     required: true
-# outputs:
-#   time:
-#     description: "The current time"
 runs:
   using: 'docker'
   image: 'Dockerfile'
