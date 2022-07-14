@@ -14,7 +14,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.LEIALOFT_POC_AWS_SECRET_ACCESS_KEY_ID }}
           aws-region: us-east-1
       - name: Test Python Dockerfile
-        uses: ./secrets
+        uses: LeiaInc/devops-actions/secrets
         with:
           secrets: '["LEIA_LOFT_PROD","LEIA_FLIX_PROD"]'
       - name: Use the value again
