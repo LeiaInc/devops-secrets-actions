@@ -15,8 +15,8 @@ jobs:
         uses: ./secrets
       - name: Use the value again
         run: |
-          echo "SECRET_SECURY_TEST: ${{ $SECRET_SECURY_TEST }}"
-          echo "TOKEN_TEST: ${{ $TOKEN_TEST }}"
+          echo "SECRET_SECURY_TEST: ${{ SECRET_SECURY_TEST }}"
+          echo "TOKEN_TEST: ${{ TOKEN_TEST }}"
       # - name: Set environment variable
       #   uses: actions/set-env-variable@v2
       #   with:
