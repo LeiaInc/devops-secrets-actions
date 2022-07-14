@@ -58,6 +58,7 @@ if __name__ == "__main__":
     args = sys.argv[1]
 
     print(args)
+    print(json.loads(args))
 
     secrets = get_secret("prod/github-actions")
 
