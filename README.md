@@ -6,3 +6,4 @@ https://jacobtomlinson.dev/posts/2019/creating-github-actions-in-go/
 https://github.com/mvdan/github-actions-golang
 
 https://docs.github.com/en/actions/security-guides/encrypted-secrets
+https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions

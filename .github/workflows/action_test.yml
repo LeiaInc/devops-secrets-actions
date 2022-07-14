@@ -6,6 +6,17 @@ jobs:
   set-env-variable:
     runs-on: ubuntu-latest
     steps:
+      - name: set AWS Secrets
+        run: |
+          echo "AWS_ACCESS_KEY_ID=${{ secrets.POC_AWS_ACCESS_KEY_ID }}" >> $GITHUB_ENV
+          echo "AWS_SECRET_ACCESS_KEY=${{ secrets.POC_AWS_SECRET_ACCESS_KEY }}" >> $GITHUB_ENV
+          echo "AWS_SESSION_TOKEN=${{ secrets.POC_AWS_SESSION_TOKEN }}" >> $GITHUB_ENV
+      - name: Test Python Dockerfile
+        uses: ./secrets
+      - name: Use the value again
+        run: |
+          echo "SECRET_SECURY_TEST: ${{ $SECRET_SECURY_TEST }}"
+          echo "TOKEN_TEST: ${{ $TOKEN_TEST }}"
       # - name: Set environment variable
       #   uses: actions/set-env-variable@v2
       #   with:
@@ -34,16 +45,16 @@ jobs:
       #   run: |
       #     echo "${{ env.action_state }}"
       #     echo "${{ env.NEW_VARIABLE }}"
-      - name: tes
-        run: |
-          echo ${{ secrets.TEST }}
-          echo ${{ secrets.TEST_ORGANIZATION }}
-      - uses: actions/checkout@v2
-      - name: Dockerfile
-        uses: ./.github/actions/secrets
-        with:
-          # who-to-greet: 'Mona the Octocat'
-          info: ${{ toJSON(secrets) }}
-      - name: Use the value again
-        run: |
-          echo "TEST: ${{ env.TEST }}"
+#      - name: tes
+#        run: |
+#          echo ${{ secrets.TEST }}
+#          echo ${{ secrets.TEST_ORGANIZATION }}
+#      - uses: actions/checkout@v2
+#      - name: Dockerfile
+#        uses: ./.github/actions/secrets
+#        with:
+#          # who-to-greet: 'Mona the Octocat'
+#          info: ${{ toJSON(secrets) }}
+#      - name: Use the value again
+#        run: |
+#          echo "TEST: ${{ env.TEST }}"

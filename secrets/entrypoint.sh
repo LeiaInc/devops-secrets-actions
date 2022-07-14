@@ -16,7 +16,7 @@ jq -j 'to_entries|.[] | "\(.key) \(.value)\t"' <<< "$1"
 # time=$(date)
 # echo "::set-output name=time::$time"
 
-# echo "action_state=blue" >> $GITHUB_ENV
+echo "action_state=blue" >> $GITHUB_ENV
 
 # curl \
 #   -H "Accept: application/vnd.github+json" \
