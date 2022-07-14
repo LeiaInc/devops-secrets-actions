@@ -8,20 +8,16 @@ from botocore.exceptions import ClientError
 
 
 def get_secret(secret_name):
-    region_name = "us-east-2"
-
     session = boto3.session.Session()
     client = session.client(
         service_name='secretsmanager',
-        region_name=region_name
+        region_name=os.getenv('AWS_REGION', 'us-east-2')
     )
 
     secrets = "{}"
 
     try:
-        get_secret_value_response = client.get_secret_value(
-            SecretId=secret_name
-        )
+        get_secret_value_response = client.get_secret_value(SecretId=secret_name)
     except ClientError as e:
         if e.response['Error']['Code'] == 'DecryptionFailureException':
             # Secrets Manager can't decrypt the protected secret text using the provided KMS key.
