@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import boto3
 import base64
@@ -54,6 +55,10 @@ def get_secret(secret_name):
 
 
 if __name__ == "__main__":
+    args = sys.argv[1]
+
+    print(args)
+
     secrets = get_secret("prod/github-actions")
 
     for secret, value in secrets.items():

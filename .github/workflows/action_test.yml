@@ -14,6 +14,8 @@ jobs:
           echo "AWS_SESSION_TOKEN=${{ secrets.POC_AWS_SESSION_TOKEN }}" >> $GITHUB_ENV
       - name: Test Python Dockerfile
         uses: ./secrets
+        with:
+          secrets: ["prod/github-actions", "tests"]
       - name: Use the value again
         run: |
           echo "SECRET_SECURY_TEST: $SECRET_SECURY_TEST"
