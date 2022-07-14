@@ -5,4 +5,4 @@ COPY main.py /main.py
 
 RUN pip install -r requirements.txt
 
-ENTREPOINT ["python", "/main.py"]
+ENTRYPOINT ["python", "/main.py"]
