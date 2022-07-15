@@ -1,9 +1,12 @@
-name: Github secrets
-author: "Douglas Francisco Cardoso <douglas.cardoso.nl@leiainc.com>"
-description: "This can export every secrets from Github to environment variables"
+name: 'AWS Secrets Manager'
+author: 'Douglas Francisco Cardoso <douglas.cardoso.nl@leiainc.com>'
+description: 'This can export every secrets from AWS Secrets Manager to environment variables to github actions'
+branding:
+  icon: 'archive'
+  color: 'black'
 inputs:
   secrets:
-    description: "Secrets name list to get from AWS Secrets Manager. Need to be a Json ARRAY."
+    description: 'Secrets name list to get from AWS Secrets Manager. Need to be a Json ARRAY.'
     required: true
 runs:
   using: 'docker'

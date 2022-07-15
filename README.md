@@ -20,7 +20,7 @@ Obs: It's necessary to pass the AWS Access key and AWS Secret Key to environment
       aws-access-key-id: ${{ secrets.LEIALOFT_POC_AWS_ACCESS_KEY_ID }}
       aws-secret-access-key: ${{ secrets.LEIALOFT_POC_AWS_SECRET_ACCESS_KEY_ID }}
       aws-region: us-east-1
-  - uses: LeiaInc/devops-actions@v0.0.1
+  - uses: LeiaInc/devops-secrets-actions@v1
     with:
       secrets: '["LEIA_LOFT_PROD","LEIA_FLIX_PROD"]'
   - name: Get the value from ENV
