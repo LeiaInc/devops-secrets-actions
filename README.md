@@ -8,7 +8,7 @@ This repo is destined to DevOps Teams Github custom Actions
 ```yaml
   - uses: LeiaInc/devops-actions@v0.0.1
     with:
-      secrets: '["LEIA_LOFT_PROD","LEIA_FLIX_PROD"]'
+      secrets: '["LEIALOFT_PROD","LEIAFLIX_PROD"]'
 ```
 
 Obs: It's necessary to pass the AWS Access key and AWS Secret Key to environment.
@@ -22,11 +22,11 @@ Obs: It's necessary to pass the AWS Access key and AWS Secret Key to environment
       aws-region: us-east-1
   - uses: LeiaInc/devops-secrets-actions@v1
     with:
-      secrets: '["LEIA_LOFT_PROD","LEIA_FLIX_PROD"]'
+      secrets: '["LEIALOFT_PROD","LEIAFLIX_PROD"]'
   - name: Get the value from ENV
     run: |
-      echo "LEIA_LOFT_PROD_SECRET_SECURY_TEST: $LEIA_LOFT_PROD_SECRET_SECURY_TEST"
-      echo "LEIA_LOFT_PROD_TOKEN_TEST: $LEIA_LOFT_PROD_TOKEN_TEST"
-      echo "LEIA_FLIX_PROD_GCP_KEY: $LEIA_FLIX_PROD_GCP_KEY"
+      echo "LEIALOFT_PROD_SECRET_SECURY_TEST: $LEIALOFT_PROD_SECRET_SECURY_TEST"
+      echo "LEIALOFT_PROD_TOKEN_TEST: $LEIALOFT_PROD_TOKEN_TEST"
+      echo "LEIAFLIX_PROD_GCP_KEY: $LEIAFLIX_PROD_GCP_KEY"
 ```
 
