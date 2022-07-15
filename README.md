@@ -1,4 +1,4 @@
-# devops-actions
+# AWS Secrets Manager
 This can export every secrets from AWS Secrets Manager to environment variables to github actions
 
 # Parameters:
