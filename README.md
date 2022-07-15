@@ -1,5 +1,5 @@
 # devops-actions
-This repo is destined to DevOps Teams Github custom Actions
+This can export every secrets from AWS Secrets Manager to environment variables to github actions
 
 # Parameters:
  - secrets: JSON ARRAY from secrets names from AWS Secret Manager. Ex: `'["LEIA_LOFT_PROD","LEIA_FLIX_PROD"]'`
