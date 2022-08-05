@@ -6,7 +6,7 @@ This can export every secrets from AWS Secrets Manager to environment variables 
 # How to use
 
 ```yaml
-  - uses: LeiaInc/devops-actions@v0.0.1
+  - uses: LeiaInc/devops-secrets-actions@v1
     with:
       secrets: '["LEIALOFT_PROD","LEIAFLIX_PROD"]'
 ```
